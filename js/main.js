@@ -14,17 +14,18 @@ function creerDamier(cote){
 
   for(i = 0; i < cote; ++i){
 
-    if (cote % 2 == 0) !blanc; // on inverse sur les damiers pairs pour éviter ques les couleurs nalternent passur les lignes
+    if (cote % 2 == 0) blanc = !blanc; // on inverse sur les damiers pairs pour éviter que les couleurs n'alternent passur les lignes
+    $("body").append("<div class=\"ligne\">");
 
-    var insertTxt = "";
-
-    for (j = 0; i < cote; ++j){
-      if (blanc) insertTxt += "<div class=\"blanc\"> </div>";
-      else insertTxt += "<div class=\"noir\"> </div>";
+    for (j = 0; j < cote; ++j){
+      if (blanc) $("body").append("<div class=\"blanc\"> </div>");
+      else $("body").append("<div class=\"noir\"> </div>");
+      blanc = !blanc;
     }
 
+    $("body").append("</div>");
   }
 }
 
 
-
+creerDamier(5);
