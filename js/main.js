@@ -18,8 +18,8 @@ function creerDamier(cote){
     $("#damier").append("<div class=\"ligne\" id=" + i + " >");
 
     for (j = 0; j < cote; ++j){
-      if (blanc) $("#" + i).append("<div class=\"blanc\"></div>");
-      else $("#" + i).append("<div class=\"noir\"></div>");
+      if (blanc) $("#" + i).append("<div class=\"blanc\" id=" + i.toString() + j.toString() + "></div>");
+      else $("#" + i).append("<div class=\"noir\" id=" + i.toString() + j.toString() + "></div>");
       blanc = !blanc;
     }
 
@@ -39,6 +39,8 @@ function creerDamier(cote){
   }
 }
 
+function changerEtat(){
 
+}
 
 creerDamier(5);
