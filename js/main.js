@@ -3,7 +3,7 @@
 */
 
 const BLANC = "#FFFFFF";
-const WHITE = "#000000";
+const NOIR  = "#000000";
 
 // consuction comme une matrice
 // une div qui contient les cases et l'autre qui les empile verticalement
@@ -14,18 +14,31 @@ function creerDamier(cote){
 
   for(i = 0; i < cote; ++i){
 
-    if (cote % 2 == 0) blanc = !blanc; // on inverse sur les damiers pairs pour éviter que les couleurs n'alternent passur les lignes
-    $("body").append("<div class=\"ligne\">");
+    if (cote % 2 == 0) blanc = !blanc; // on inverse sur les damiers pairs pour éviter que les couleurs n'alternent pas sur les lignes
+    $("#damier").append("<div class=\"ligne\" id=" + i + " >");
 
     for (j = 0; j < cote; ++j){
-      if (blanc) $("body").append("<div class=\"blanc\"> </div>");
-      else $("body").append("<div class=\"noir\"> </div>");
+      if (blanc) $("#" + i).append("<div class=\"blanc\"></div>");
+      else $("#" + i).append("<div class=\"noir\"></div>");
       blanc = !blanc;
     }
 
-    $("body").append("</div>");
+    $("#damier").append("</div>");
+
+    $(".blanc").css("background-color", BLANC);
+    $(".noir").css("background-color", NOIR);
+
+    $("#damier, .ligne").css("display", "flex");
+    $("#damier").css("flex-direction", "column")
+    $(".ligne").css("flex-direction", "row")
+
+
+    $(".noir, .blanc").css("padding", "50px")
+
+    $(".ligne").css("display", "flex");
   }
 }
+
 
 
 creerDamier(5);
